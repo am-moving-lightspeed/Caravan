@@ -15,13 +15,14 @@
     width: 100%;
     height: 100%;
 
-    -webkit-text-fill-color: rgb(221, 160, 6);
-    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-fill-color: rgb(220, 160, 5);
+    -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: brown;
 }
 
 
-/* NOTE: caravans section. */
+
+/* Caravans section. */
 .caravans-section {
     flex: 5 1 0;
 
@@ -34,18 +35,24 @@
     justify-content: space-between;
 
     padding: 0;
+    margin: 0 10vw 0 0;
+
+    height: 100%;
 }
 
 .caravans-column {
-    flex: 1 1 0;
+    flex: 0 0 0;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .caravans-column span {
     display: block;
+
+    margin: 1vh auto;
 }
 
 
@@ -58,10 +65,6 @@
     flex-direction: column;
 
     height: 100%;
-}
-
-.deck-section .cards-deck-block {
-    /* margin: 20px 0; */
 }
 
 
@@ -88,7 +91,7 @@
 
 /* Controls block start */
 .controls-block {
-    flex: 0 1 0;
+    flex: 0.3 1 0;
 
     display: flex;
     flex-direction: column;
@@ -268,5 +271,12 @@
     transform:  translate(-50%, -50%);
 
     z-index: 10;
+}
+
+.cards-deck span {
+    position: absolute;
+
+    bottom: 5%;
+    right: 5%;
 }
 /* Cards deck block end */

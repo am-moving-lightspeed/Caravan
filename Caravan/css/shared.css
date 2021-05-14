@@ -5,3 +5,9 @@
 
     width: 6.5vw;
 }
+
+@media only screen and (max-width: 960px) {
+    .card {
+        width: 6vw;
+    }
+}
