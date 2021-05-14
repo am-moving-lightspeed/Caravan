@@ -17,6 +17,8 @@ body {
 	margin: 0;
     min-height: 100vh;
     background: url(../img/bg_2.png);
+
+    color: rgba(220, 160, 5, 0.74);
 }
 
 h1,
@@ -45,6 +47,11 @@ button {
 
 li {
     list-style-type: none;
+}
+
+
+.about-article {
+    margin: 0 15vw;
 }
 
 
