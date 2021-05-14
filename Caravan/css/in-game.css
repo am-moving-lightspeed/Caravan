@@ -1,0 +1,272 @@
+/* Game Page */
+
+.in-game-container {
+    padding: 4vh 10vw 7vh;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.in-game-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    -webkit-text-fill-color: rgb(221, 160, 6);
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: brown;
+}
+
+
+/* NOTE: caravans section. */
+.caravans-section {
+    flex: 5 1 0;
+
+    height: 100%;
+}
+
+.caravans {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 0;
+}
+
+.caravans-column {
+    flex: 1 1 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.caravans-column span {
+    display: block;
+}
+
+
+
+/* Deck section. */
+.deck-section {
+    flex: 3 1 0;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+.deck-section .cards-deck-block {
+    /* margin: 20px 0; */
+}
+
+
+/* Info block start */
+.info-block {
+    flex: 0.3 1 0;
+
+    margin-left: 20%;
+    margin-right: 10%;
+}
+
+.info-block__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.info-block__item span:last-child {
+    margin-left: 10px;
+}
+/* Info block end */
+
+
+/* Controls block start */
+.controls-block {
+    flex: 0 1 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.control::after {
+    content: "";
+
+    display: block;
+
+    margin: 0 auto;
+
+    width: 0;
+    height: 3px;
+
+    background-color: rgb(220, 135, 30);
+    border-radius: 4px;
+
+    transition: width 0.15s ease-in-out;
+}
+
+.control:hover {
+    cursor: pointer;
+
+    transform: scale(0.98);
+}
+
+.control:hover::after {
+    width: 100%;
+}
+
+.control:active {
+    transform: scale(0.95);
+}
+/* Controls block end */
+
+
+/* Cards deck block start */
+.cards-deck-block {
+    flex: 1 1 0;
+}
+
+.cards-deck-block > * {
+    display: inline-block;
+
+    height: 100%;
+}
+
+.cards-in-hand,
+.cards-in-hand--mirrored {
+    width: 60%;
+
+    position: relative;
+}
+
+.cards-in-hand img,
+.cards-in-hand--mirrored img {
+    display: inline-block;
+
+    position: absolute;
+}
+
+.cards-in-hand img:nth-child(1) {
+    top: 64%;
+    left: 24%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+
+    z-index: 10;
+}
+
+.cards-in-hand--mirrored img:nth-child(1) {
+    bottom: 57%;
+    right: 35%;
+    transform: translate(50%, 50%) rotate(10deg);
+
+    z-index: 10;
+}
+
+.cards-in-hand img:nth-child(2) {
+    top: 58%;
+    left: 32%;
+    transform:  translate(-50%, -50%) rotate(-6deg);
+
+    z-index: 11;
+}
+
+.cards-in-hand--mirrored img:nth-child(2) {
+    bottom: 50%;
+    right: 43%;
+    transform: translate(50%, 50%) rotate(6deg);
+
+    z-index: 11;
+}
+
+.cards-in-hand img:nth-child(3) {
+    top: 50%;
+    left: 41%;
+    transform:  translate(-50%, -50%) rotate(-2deg);
+
+    z-index: 12;
+}
+
+.cards-in-hand--mirrored img:nth-child(3) {
+    bottom: 42%;
+    right: 52%;
+    transform: translate(50%, 50%) rotate(2deg);
+
+    z-index: 12;
+}
+
+.cards-in-hand img:nth-child(4) {
+    top: 56%;
+    left: 57%;
+    transform:  translate(-50%, -50%) rotate(2deg);
+
+    z-index: 13;
+}
+
+.cards-in-hand--mirrored img:nth-child(4) {
+    bottom: 48%;
+    right: 68%;
+    transform: translate(50%, 50%) rotate(-2deg);
+
+    z-index: 13;
+}
+
+.cards-in-hand img:nth-child(5) {
+    top: 62%;
+    left: 65%;
+    transform:  translate(-50%, -50%) rotate(10deg);
+
+    z-index: 14;
+}
+
+.cards-in-hand--mirrored img:nth-child(5) {
+    bottom: 54%;
+    right: 76%;
+    transform: translate(50%, 50%) rotate(-10deg);
+
+    z-index: 14;
+}
+
+.cards-deck {
+    position: relative;
+
+    width: 38%;
+
+    margin: 0 auto;
+}
+
+.cards-deck img {
+    display: inline-block;
+
+    position: absolute;
+}
+
+.cards-deck img:nth-child(1) {
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%);
+
+    z-index: 12;
+}
+
+.cards-deck img:nth-child(2) {
+    top: 52%;
+    left: 48%;
+    transform:  translate(-50%, -50%);
+
+    z-index: 11;
+}
+
+.cards-deck img:nth-child(3) {
+    top: 54%;
+    left: 46%;
+    transform:  translate(-50%, -50%);
+
+    z-index: 10;
+}
+/* Cards deck block end */
