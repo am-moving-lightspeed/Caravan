@@ -1,0 +1,248 @@
+/* General settings */
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 26px;
+    font-style: normal;
+    font-weight: normal;
+    font-family: 'Alegreya SC', serif;
+
+    display: flex;
+	flex-direction: column;
+	margin: 0;
+    min-height: 100vh;
+    background: url(../img/bg_2.png);
+
+    color: rgba(220, 160, 5, 0.74);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+form,
+input {
+    margin: 0;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    -webkit-text-fill-color: inherit;
+    -webkit-text-stroke-width: inherit;
+    -webkit-text-stroke-color: inherit;
+}
+
+button {
+    background-color: inherit;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+.about-article {
+    margin: 0 15vw;
+}
+
+
+/* Main Page */
+
+.title {
+    text-align: center;
+    font-size: 96px;
+    -webkit-text-fill-color: rgba(220, 160, 5, 0.74);
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: brown;
+}
+
+.menu {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+}
+
+.menu-button {
+    font-size: 48px;
+    background: rgba(220, 160, 5, 0.54);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.menu-button:hover {
+    background: rgba(67, 79, 23, 0.8);
+    cursor: pointer;
+}
+
+.menu-button:active {
+    transform: scale(0.8);
+}
+
+
+/* Sign In/Up Pages */
+
+.menu-page {
+    margin: 20px auto;
+}
+
+.sign-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    align-items: center;
+}
+
+.sign-input {
+    border: 3px solid rgba(220, 160, 5, 0.74);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    color: rgb(220, 160, 5);
+}
+
+.sign-input:focus {
+    transform: scale(1.08);
+    outline: none;
+}
+
+.sign-input::placeholder {
+    font-style: italic;
+    color: rgb(220, 160, 5);
+}
+
+.back-button {
+    color: transparent;
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    background: url(../img/back.png);
+    background-repeat: no-repeat;
+    background-size: 160px;
+    border: none;
+    margin-left: 30px;
+}
+
+.back-button:active {
+    transform: scale(0.8);
+}
+
+
+
+/* Choosing cards */
+
+.choosing-cards-page {
+    margin: 15px 100px 5px 100px;
+}
+
+.cards-list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.cards-list li {
+    text-align: center;
+}
+
+.card-item {
+    max-width: 140px;
+    width: 100%;
+    margin: 0;
+}
+
+.choise-info {
+    padding: 20px 100px 20px 100px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 1fr;
+    font-size: 28px;
+    -webkit-text-fill-color: rgb(221, 160, 6);
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: goldenrod;
+}
+
+.controls {
+    padding: 10px 100px;
+    display: flex;
+    font-size: 32px;
+    -webkit-text-fill-color: rgb(221, 160, 6);
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: goldenrod;
+    background-color: transparent;
+}
+
+.controls-right {
+    margin-left: auto;
+}
+
+
+
+/* Phone version */
+
+@media only screen and (max-width: 960px) {
+    /* General settings */
+    body {
+        font-size: 22px;
+    }
+    .title {
+        font-size: 64px;
+    }
+    .back-button {
+        width: 100px;
+        height: 100px;
+        background-size: 90px;
+        align-self: center;
+    }
+    p,
+    button {
+        font-size: 18px;
+    }
+    .menu-button {
+        font-size: 24px;
+    }
+    /* Game page */
+    .game-info-part {
+        grid-template-columns: repeat(2, 1fr);
+        margin-right: 20px;
+    }
+    .card-item {
+        max-width: 90px;
+    }
+    .game-main img {
+        max-width: 90px;
+    }
+    .game-main {
+        padding-bottom: 0;
+    }
+    .controls {
+        padding: 0;
+    }
+    /* Choosing cards page */
+    .choosing-cards-page {
+        margin: 0;
+        margin-top: 10px;
+    }
+    /* Sign up/in page */
+    .sign-input {
+        max-width: 350px;
+    }
+}

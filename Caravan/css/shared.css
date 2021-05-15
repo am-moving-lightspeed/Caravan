@@ -1,0 +1,49 @@
+.card {
+    display: block;
+
+    margin: 0;
+
+    width: 6.5vw;
+}
+
+
+/* Controls block start */
+.control::after {
+    content: "";
+
+    display: block;
+
+    margin: 0 auto;
+
+    width: 0;
+    height: 3px;
+
+    background-color: rgb(220, 135, 30);
+    border-radius: 4px;
+
+    transition: width 0.15s ease-in-out;
+}
+
+.control:hover {
+    cursor: pointer;
+
+    transform: scale(0.98);
+}
+
+.control:hover::after {
+    width: 100%;
+}
+
+.control:active {
+    transform: scale(0.95);
+}
+/* Controls block start */
+
+
+
+
+@media only screen and (max-width: 960px) {
+    .card {
+        width: 6vw;
+    }
+}
