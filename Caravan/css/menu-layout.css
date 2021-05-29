@@ -1,0 +1,38 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 30%;
+}
+
+.menu-button {
+  background: rgba(220, 160, 5, 0.5);
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.4),
+              inset 1px 1px 4px 0 rgba(255, 255, 255, 0.3);
+
+  border: none;
+  border-radius: 5px;
+
+  margin-bottom: 20px;
+  padding: 10px;
+
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.menu-button:hover {
+  background: rgba(220, 160, 5, 0.75);
+
+  color: rgba(0, 0, 0, 0.8);
+
+  cursor: pointer;
+}
+
+.menu-button:active {
+  box-shadow: inset 1px 1px 4px 0 rgba(0, 0, 0, 0.5),
+              inset -1px -1px 4px 0 rgba(255, 255, 255, 0.3);
+
+  transform: scale(0.99);
+}
