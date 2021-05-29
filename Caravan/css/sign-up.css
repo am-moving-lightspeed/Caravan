@@ -1,0 +1,45 @@
+.form-row {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+}
+
+.form-column {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-column:first-child {
+  align-items: flex-start;
+}
+
+.form-column:last-child {
+  align-items: flex-end;
+}
+
+.form-input {
+  width: 95%;
+}
+
+
+.menu-button {
+  margin: 5vh auto 0;
+}
+
+
+.vertical-container {
+  position: relative;
+}
+
+
+.control {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  margin-left: 10vw;
+}

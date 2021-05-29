@@ -45,9 +45,9 @@ input {
     background-color: inherit;
 } */
 
-li {
+/* li {
     list-style-type: none;
-}
+} */
 
 
 /* Main Page */
@@ -60,35 +60,6 @@ li {
     -webkit-text-stroke-color: brown;
 } */
 
-
-
-.sign-form {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    margin: 10px auto;
-    align-items: center;
-}
-
-.sign-input {
-    border: 3px solid rgba(220, 160, 5, 0.74);
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 20px;
-    background-color: transparent;
-    color: rgb(220, 160, 5);
-}
-
-.sign-input:focus {
-    transform: scale(1.08);
-    outline: none;
-}
-
-.sign-input::placeholder {
-    font-style: italic;
-    color: rgb(220, 160, 5);
-}
 
 .back-button {
     color: transparent;
