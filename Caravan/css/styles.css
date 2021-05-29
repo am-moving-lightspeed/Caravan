@@ -1,12 +1,12 @@
 /* General settings */
-
+/*
 *,
 *::after,
 *::before {
     box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
     font-size: 26px;
     font-style: normal;
     font-weight: normal;
@@ -19,9 +19,9 @@ body {
     background: url(../img/bg_2.png);
 
     color: rgba(220, 160, 5, 0.74);
-}
+} */
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -39,7 +39,7 @@ input {
     -webkit-text-fill-color: inherit;
     -webkit-text-stroke-width: inherit;
     -webkit-text-stroke-color: inherit;
-}
+} */
 
 button {
     background-color: inherit;

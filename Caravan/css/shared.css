@@ -1,49 +1,133 @@
-.card {
-    display: block;
+/* General */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 
-    margin: 0;
+  margin: 0;
+  padding: 0;
 
-    width: 6.5vw;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 
-/* Controls block start */
+html {
+  font-size: 26px;
+}
+
+
+body {
+  font-family: 'Alegreya SC', serif;
+
+  width: 100%;
+  background: url(../img/bg_2.png);
+
+  color: rgb(220, 160, 5);
+}
+
+
+h1 {
+  margin-bottom: 5vh;
+
+  background-image: linear-gradient(90deg, transparent, #0000007F, transparent);
+
+  font-size: 3rem;
+  text-align: center;
+  color: rgba(220, 160, 5, 0.9);
+  -webkit-text-stroke-width: 1.5px;
+  text-stroke-width: 1.5px;
+}
+
+
+h2 {
+  font-size: 1.5rem;
+
+    -webkit-text-stroke-width: 1px;
+    text-stroke-width: 1px;
+}
+
+
+button {
+  border: none;
+
+  /* -webkit-text-stroke-width: 0.5px; */
+  text-stroke-width: 0.5px;
+}
+
+
+h1, h2,
+button {
+  -webkit-text-stroke-color: brown;
+  text-stroke-color: brown;
+}
+
+
+.vertical-container {
+  padding-top: 7vh;
+  padding-bottom: 9vh;
+}
+
+.horizontal-container {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+.vertical-container,
+.horizontal-container {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+/* Card */
+.card {
+  display: block;
+
+  margin: 0;
+
+  width: 6.5vw;
+}
+
+
+
+/* Controls */
+/* (buttons, button-like links) */
+.control {
+  background-image: linear-gradient(90deg, transparent -2%, #0000006F, transparent 102%);
+
+  color: rgb(5, 160, 220);
+}
+
 .control::after {
-    content: "";
+  content: "";
 
-    display: block;
+  display: block;
 
-    margin: 0 auto;
+  margin: 0 auto;
 
-    width: 0;
-    height: 3px;
+  width: 0;
+  height: 3px;
 
-    background-color: rgb(220, 135, 30);
-    border-radius: 4px;
+  background-color: rgb(220, 135, 30);
+  border-radius: 4px;
 
-    transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
 }
 
 .control:hover {
-    cursor: pointer;
+  cursor: pointer;
 
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 .control:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .control:active {
-    transform: scale(0.95);
-}
-/* Controls block start */
-
-
-
-
-@media only screen and (max-width: 960px) {
-    .card {
-        width: 6vw;
-    }
+  transform: scale(0.95);
 }
