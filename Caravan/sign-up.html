@@ -17,39 +17,50 @@
 <body>
 
   <div class="vertical-container">
-    <h1 class="title">Sign Up</h1>
+    <div class="horizontal-container">
+      <div class="flex-container">
 
-    <main>
-      <form id="form" name="registration-form" method="POST" class="form">
+        <h1>Sign Up</h1>
 
-        <div class="form-row">
-          <div class="form-column">
-            <input name="username" type="text" placeholder="Username" class="form-input">
-            <input name="email" type="email" placeholder="Email" class="form-input">
+        <main>
+
+          <form name="registration-form" method="POST" class="form">
+
+            <div class="form-row">
+              <div class="form-column">
+                <input name="username" type="text" placeholder="Username" class="form-input">
+                <input name="email" type="email" placeholder="Email" class="form-input">
+              </div>
+              <div class="form-column">
+                <input name="password" type="password" placeholder="Password" class="form-input">
+                <input name="repeat-password" type="password" placeholder="Confirm password" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <ul name="form-error-list" class="form-error-list"></ul>
+            </div>
+
+            <div class="form-row">
+              <input name="submit" type="submit" value="Sign Up" class="menu-button">
+            </div>
+
+          </form>
+
+          <div>
+            <button name="back-button" class="control">Back to menu</button>
           </div>
-          <div class="form-column">
-            <input name="password" type="password" placeholder="Password" class="form-input">
-            <input name="repeat-password" type="password" placeholder="Confirm password" class="form-input">
-          </div>
-        </div>
 
-        <div class="form-row">
-          <ul name="form-error-list" class="form-error-list"></ul>
-        </div>
+        </main>
 
-        <div class="form-row">
-          <input name="submit" type="submit" value="Sign Up" class="menu-button">
-        </div>
-
-      </form>
-    </main>
-
-    <button name="back-button" class="control">Back to menu</button>
-
+      </div>
+    </div>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+  <script src="js/fb.js"></script>
   <script src="js/sign-up-pg.js" charset="utf-8"></script>
 </body>
 

@@ -1,25 +1,3 @@
-var firebaseConfig = {
-    apiKey: "AIzaSyAzTbNoOPT1pp6WRSLydYQn4xLoZz5c0cc",
-    authDomain: "caravan-card-game.firebaseapp.com",
-    projectId: "caravan-card-game",
-    storageBucket: "caravan-card-game.appspot.com",
-    messagingSenderId: "494542768135",
-    appId: "1:494542768135:web:305670b89ca65fede202a2"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-var errorMessages = {
-    username: `Incorrect username: use A-Z, 0-9, underscore or dot characters. Name cannot start
-        with 0-9, underscore or dot.`,
-    email: "Incorrect email: check if you've printed it right",
-    password: `Password must contain A-Z in upper or lower case, 0-9 or underscores and must consist
-        at least of 8 symbols.`,
-    repeatPassword: "Repeated password value must match your password."
-};
-
-
-
 (function() {
 
     let backBtn = document.getElementsByName('back-button')[0];
@@ -39,10 +17,12 @@ var errorMessages = {
         (e) => onSubmitForm(form, e)
     )
 
-    // form.addEventListener(
-    //     'submit',
-    //     (e) => e.preventDefault()
-    // )
+    form.addEventListener(
+        'submit',
+        (e) => e.preventDefault()
+    )
+
+    console.log(firebase.auth().currentUser);
 })();
 
 
@@ -51,29 +31,49 @@ function onSubmitForm(form, event) {
 
     let errList = form.querySelector('ul[name="form-error-list"]');
 
+    errList.style.display = 'none';
     while (errList.firstChild) {
         errList.removeChild(errList.lastElementChild);
     }
 
     let errors = [];
     checkIfFormInputsMatchRegex(form, errors);
+    console.log(errors)
 
     if (errors.length != 0) {
         errList.style.display = 'block';
 
         for (const err of errors) {
-            if (errorMessages.hasOwnProperty(err)) {
+            if (formErrorsMessages.hasOwnProperty(err)) {
 
                 let li = document.createElement('li');
                 li.appendChild(
-                    document.createTextNode(errorMessages[err])
+                    document.createTextNode(formErrorsMessages[err])
                 )
                 errList.appendChild(li);
             }
         }
 
         event.preventDefault();
+    } else {
+        registerWithFormData(form);
+        event.preventDefault();
     }
+}
+
+
+
+function registerWithFormData(form) {
+
+    let inputs = Array.from(form.getElementsByTagName('input'));
+
+    let email = inputs.filter((input) => input.name === 'email')[0].value;
+    let password = inputs.filter((input) => input.name === 'password')[0].value;
+
+    this.firebase.auth()
+                 .createUserWithEmailAndPassword(email, password)
+                 .then((credential) => console.log(credential))
+                 .catch((error) => console.log(error));
 }
 
 

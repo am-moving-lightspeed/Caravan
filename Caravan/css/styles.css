@@ -61,7 +61,7 @@ input {
 } */
 
 
-.back-button {
+/* .back-button {
     color: transparent;
     width: 170px;
     height: 170px;
@@ -75,7 +75,7 @@ input {
 
 .back-button:active {
     transform: scale(0.8);
-}
+} */
 
 
 
