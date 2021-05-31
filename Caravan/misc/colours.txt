@@ -1,0 +1,4 @@
+(5, 160, 220) -- neon blue
+(195, 50, 50) -- brown
+(220, 160, 5) -- orange (default)
+(220, 135, 30) -- orange (darker)

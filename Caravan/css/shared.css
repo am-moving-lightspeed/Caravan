@@ -85,15 +85,29 @@ h1, h2 {
   height: 100%;
 }
 
+.font-size-3rem {
+  font-size: 3rem;
+}
+
 
 
 /* Card */
 .card {
   display: block;
+  position: relative;
+  z-index: 1;
 
   margin: 0;
 
   width: 6.5vw;
+
+  /* FIXME:  */
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 1);
+  border-radius: 10px;
+}
+
+.card--invisible {
+  visibility: hidden;
 }
 
 
@@ -102,7 +116,7 @@ h1, h2 {
 /* (buttons, button-like links) */
 .control {
   background-color: transparent;
-  background-image: linear-gradient(90deg, transparent -2%, #0000006F, transparent 102%);
+  background-image: linear-gradient(90deg, transparent -2%, #0000007F, transparent 102%);
 
   color: rgb(5, 160, 220);
 }
@@ -115,7 +129,7 @@ h1, h2 {
 }
 
 .control::after {
-  content: "";
+  content: '';
 
   display: block;
 
@@ -124,7 +138,7 @@ h1, h2 {
   width: 0;
   height: 3px;
 
-  background-color: rgb(220, 135, 30);
+  background-color: rgb(5, 160, 220);
   border-radius: 4px;
 
   transition: width 0.15s ease-in-out;
@@ -142,4 +156,20 @@ h1, h2 {
 
 .control:active {
   transform: scale(0.95);
+}
+
+.control--dynamic-prefix::before {
+  content: attr(hotkey);
+}
+
+.control--alt-color {
+  color: rgb(220, 160, 5);
+  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-color: rgb(220, 135, 30);
+  text-stroke-width: 0.4px;
+  text-stroke-color: rgb(220, 135, 30);
+}
+
+.control--alt-color::after {
+  background-color: rgb(220, 135, 30);
 }

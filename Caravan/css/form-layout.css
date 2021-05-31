@@ -8,6 +8,19 @@
   width: 50%;
 }
 
+.form-row {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+}
+
+.form-column {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .form-input {
   padding: 5px;
   margin-bottom: 20px;

@@ -1,0 +1,152 @@
+/* General */
+main {
+  padding: 0 3vw;
+
+  width: 100%;
+  height: 100%;
+}
+
+main section {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+
+.vertical-container {
+  padding-bottom: 7vh;
+}
+
+.flex-container {
+  flex-direction: row;
+}
+
+
+
+/* Cards */
+.card {
+  width: 8.5vw;
+}
+
+
+.cards-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cards-list-out-of-bounds-container {
+  /* NOTE: same value as in padding of 'controls-pane' class * (-1). */
+  margin: 0 -2vw;
+  width: 84vw;
+}
+
+
+.deck-info {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns:
+    [col1-end] 25%
+    [col2-end] 23%
+    [col3-end] 4%
+    [col4-end] 48%;
+  justify-items: start;
+
+  padding: 4vh 5vw;
+
+  text-align: left;
+}
+
+.deck-info > button {
+  justify-self: end;
+}
+
+.deck-info > p {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  vertical-align: middle;
+}
+
+.deck-info__pointer {
+  text-align: center;
+}
+
+.deck-info__pointer--up {
+  margin-top: -2vh;
+}
+
+.deck-info__pointer--down {
+  margin: 2vh 0 -2vh 0;
+}
+
+
+
+/* Controls */
+.controls-pane {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 5vh 5vw 0;
+}
+
+.controls-pane > div > button:nth-child(even) {
+  margin-left: 2vw;
+}
+
+.control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 10vw;
+}
+
+.control-bg {
+  width: 100%;
+
+  background-image: radial-gradient(circle closest-side, #0000008F, transparent);
+}
+
+.control-bg:hover {
+  background-image: radial-gradient(circle closest-side, #000000BF, transparent);
+}
+
+.control--arrow-btn {
+  display: block;
+  position: relative;
+  top: -0.3rem;
+
+  margin: 0 auto;
+
+  width: 100%;
+
+  background: transparent;
+  color: rgba(5, 160, 220, 0.9);
+
+  line-height: 1.25;
+}
+
+.control--arrow-btn:hover {
+  color: rgb(5, 160, 220);
+
+  /* NOTE: cancel 'control' class transform. */
+  transform: none;
+}
+
+.control--arrow-btn:active {
+  transform: scale(0.96);
+}
+
+.control--arrow-btn::after,
+.control--arrow-btn::before {
+  display: none;
+}
+
+#play-btn::before {
+  content: '→';
+}
