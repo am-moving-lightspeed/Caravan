@@ -15,10 +15,10 @@
     let selectAllBtn = document.getElementById('select-all-btn');
     let backBtn = document.getElementById('back-btn');
 
-    addBtn.setAttribute('hotkey', this.buildingDeckPageKbLayoutSymbols['add']);
-    removeBtn.setAttribute('hotkey', this.buildingDeckPageKbLayoutSymbols['remove']);
-    randomizeBtn.setAttribute('hotkey', this.buildingDeckPageKbLayoutSymbols['randomize']);
-    selectAllBtn.setAttribute('hotkey', this.buildingDeckPageKbLayoutSymbols['selectAll']);
+    addBtn.setAttribute('hotkey', this.kbLayoutSymbols['add']);
+    removeBtn.setAttribute('hotkey', this.kbLayoutSymbols['remove']);
+    randomizeBtn.setAttribute('hotkey', this.kbLayoutSymbols['randomize']);
+    selectAllBtn.setAttribute('hotkey', this.kbLayoutSymbols['selectAll']);
 })();
 
 
@@ -31,12 +31,40 @@
     let randomizeBtn = document.getElementById('randomize-btn');
     let selectAllBtn = document.getElementById('select-all-btn');
     let backBtn = document.getElementById('back-btn');
+    let shiftLeftBtn = document.getElementById('shift-left-btn');
+    let shiftRightBtn = document.getElementById('shift-right-btn');
 
     // TODO: add events.
     // NOTE: Replace assign().
     backBtn.addEventListener(
         'click',
         (e) => location.assign('index.html')
+    );
+
+    addBtn.addEventListener(
+        'click',
+        (e) => changeMatchingCards(
+            this.curPos.absolute,
+            (index) => this.availableCards[index] !== this.cardBack
+        )
+    );
+
+    removeBtn.addEventListener(
+        'click',
+        (e) => changeMatchingCards(
+            this.curPos.absolute,
+            (index) => this.pickedCards[index] !== this.cardBack
+        )
+    );
+
+    shiftLeftBtn.addEventListener(
+        'click',
+        (event) => shiftLeft()
+    );
+
+    shiftRightBtn.addEventListener(
+        'click',
+        (event) => shiftRight()
     );
 })();
 
@@ -51,9 +79,8 @@
     this.curPos = new PositionPointer(dummyCardsAmount, this.availableCards.length);
 
     for (var i = 0; i < dummyCardsAmount; i++) {
-        // FIXME: replace with true.
-        placeCard(this.imgManager.dummy, this.availableCardsList, false);
-        placeCard(this.imgManager.dummy, this.pickedCardsList, false);
+        placeCard(this.imgManager.dummy, this.availableCardsList, true);
+        placeCard(this.imgManager.dummy, this.pickedCardsList, true);
     }
 
     for (var i = 0; i < dummyCardsAmount + 1; i++) {
@@ -70,71 +97,53 @@
 
 
 
-// 'Shift left' button event.
-(function() {
+function shiftRight() {
 
-    let shiftLeftBtn = document.getElementById('shift-left-btn');
+    this.curPos.shiftRight();
 
-    shiftLeftBtn.addEventListener(
-        'click',
-        (event) => {
-            this.curPos.shiftLeft();
-
-            if (!this.curPos.isAtRightRelativeLimit) {
-                recycleCard(
-                    this.imgManager.getFilepath(this.availableCards[this.curPos.relative]),
-                    this.availableCardsList,
-                    false
-                );
-                recycleCard(
-                    this.imgManager.getFilepath(this.pickedCards[this.curPos.relative]),
-                    this.pickedCardsList,
-                    false
-                );
-            } else if (!this.curPos.isAtRightAbsoluteLimit) {
-                // FIXME: replace with true.
-                recycleCard(this.imgManager.dummy, this.availableCardsList, false);
-                recycleCard(this.imgManager.dummy, this.pickedCardsList, false);
-            }
-        }
-    );
-})();
+    if (!this.curPos.isAtRightRelativeLimit) {
+        recycleCard(
+            this.imgManager.getFilepath(this.availableCards[this.curPos.relative]),
+            this.availableCardsList,
+            false
+        );
+        recycleCard(
+            this.imgManager.getFilepath(this.pickedCards[this.curPos.relative]),
+            this.pickedCardsList,
+            false
+        );
+    } else if (!this.curPos.isAtRightAbsoluteLimit) {
+        recycleCard(this.imgManager.dummy, this.availableCardsList, true);
+        recycleCard(this.imgManager.dummy, this.pickedCardsList, true);
+    }
+}
 
 
 
-// 'Shift right' button event.
-(function() {
+function shiftLeft() {
 
-    let shiftRightBtn = document.getElementById('shift-right-btn');
+    this.curPos.shiftLeft();
 
-    shiftRightBtn.addEventListener(
-        'click',
-        (event) => {
-            this.curPos.shiftRight();
-
-            if (!this.curPos.isAtLeftRelativeLimit) {
-                recycleCardReverse(
-                    this.imgManager.getFilepath(this.availableCards[this.curPos.relative]),
-                    this.availableCardsList,
-                    false
-                );
-                recycleCardReverse(
-                    this.imgManager.getFilepath(this.pickedCards[this.curPos.relative]),
-                    this.pickedCardsList,
-                    false
-                );
-            } else if (!this.curPos.isAtLeftAbsoluteLimit) {
-                // FIXME: replace with true.
-                recycleCardReverse(this.imgManager.dummy, this.availableCardsList, false);
-                recycleCardReverse(this.imgManager.dummy, this.pickedCardsList, false);
-            }
-        }
-    );
-})();
+    if (!this.curPos.isAtLeftRelativeLimit) {
+        recycleCardReverse(
+            this.imgManager.getFilepath(this.availableCards[this.curPos.relative]),
+            this.availableCardsList,
+            false
+        );
+        recycleCardReverse(
+            this.imgManager.getFilepath(this.pickedCards[this.curPos.relative]),
+            this.pickedCardsList,
+            false
+        );
+    } else if (!this.curPos.isAtLeftAbsoluteLimit) {
+        recycleCardReverse(this.imgManager.dummy, this.availableCardsList, true);
+        recycleCardReverse(this.imgManager.dummy, this.pickedCardsList, true);
+    }
+}
 
 
 
-function recycleCard(filepath, deck, isIvisible = false) {
+function recycleCard(filepath, deck, isInvisible = false) {
 
     let li = deck.firstElementChild;
     let img = li.firstElementChild;
@@ -144,8 +153,11 @@ function recycleCard(filepath, deck, isIvisible = false) {
     img.className = 'card';
     img.setAttribute('src', filepath);
 
-    if (isIvisible) {
+    if (isInvisible) {
         img.classList.add('card--invisible');
+        li.setAttribute('invisible', '');
+    } else {
+        li.removeAttribute('invisible');
     }
 
     deck.appendChild(li);
@@ -153,7 +165,7 @@ function recycleCard(filepath, deck, isIvisible = false) {
 
 
 
-function recycleCardReverse(filepath, deck, isIvisible = false) {
+function recycleCardReverse(filepath, deck, isInvisible = false) {
 
     let li = deck.lastElementChild;
     let img = li.firstElementChild;
@@ -163,8 +175,11 @@ function recycleCardReverse(filepath, deck, isIvisible = false) {
     img.className = 'card';
     img.setAttribute('src', filepath);
 
-    if (isIvisible) {
+    if (isInvisible) {
         img.classList.add('card--invisible');
+        li.setAttribute('invisible', '');
+    } else {
+        li.removeAttribute('invisible');
     }
 
     deck.insertBefore(li, deck.firstElementChild);
@@ -182,8 +197,51 @@ function placeCard(filepath, deck, isIvisible = false) {
 
     if (isIvisible) {
         img.classList.add('card--invisible');
+        li.setAttribute('invisible', '');
     }
 
     li.appendChild(img);
     deck.appendChild(li);
+}
+
+
+
+function changeMatchingCards(index, predicate) {
+
+    if (predicate(index)) {
+
+        [this.availableCards[index], this.pickedCards[index]] =
+            [this.pickedCards[index], this.availableCards[index]];
+
+        let position = Math.floor(this.availableCardsList.children.length / 2);
+        let li_A = this.availableCardsList.children[position];
+        let li_P = this.pickedCardsList.children[position];
+
+        let img_A = li_A.firstElementChild;
+        let img_P = li_P.firstElementChild;
+
+        li_A.appendChild(img_P);
+        li_P.appendChild(img_A);
+    }
+}
+
+
+
+function removeCard(index) {
+
+    if (predicate(index)) {
+
+        [this.availableCards[index], this.pickedCards[index]] =
+            [this.pickedCards[index], this.availableCards[index]];
+
+        let position = Math.floor(this.availableCardsList.children.length / 2);
+        let li_A = this.availableCardsList.children[position];
+        let li_P = this.pickedCardsList.children[position];
+
+        let img_A = li_A.firstElementChild;
+        let img_P = li_P.firstElementChild;
+
+        li_A.appendChild(img_P);
+        li_P.appendChild(img_A);
+    }
 }

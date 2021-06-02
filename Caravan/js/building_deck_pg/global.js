@@ -1,3 +1,8 @@
+cardBack = 'card-back';
+dummyCard = 'dummy-card';
+
+
+
 screenWidthMap = {
     // FIXME: Remeasure.
     '480': 2,
@@ -16,7 +21,7 @@ screenWidthMap = {
 
 
 
-buildingDeckPageKbLayoutSymbols = {
+kbLayoutSymbols = {
     add: "(E)",
     remove: "(R)",
     randomize: "(M)",
@@ -47,20 +52,11 @@ availableCards = [
 
 
 pickedCards = [
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back', 'card-back', 'card-back',
-    'card-back', 'card-back'
+    ...(function*(length) {
+        for (var i = 0; i < length; i++) {
+            yield this.cardBack;
+        }
+    })(54)
 ];
 
 
@@ -69,8 +65,8 @@ class ImgManager {
 
     constructor() {
 
-        this.dummy = this.getFilepath('dummy-card');
-        this.cardBack = this.getFilepath('card-back');
+        this.dummy = this.getFilepath(dummyCard);
+        this.cardBack = this.getFilepath(cardBack);
     }
 
     getFilepath(filename) {
@@ -107,7 +103,7 @@ class PositionPointer {
     }
 
 
-    shiftRight() {
+    shiftLeft() {
 
         if (this._movingDir === 'forward') {
             this._movingDir = 'backward';
@@ -138,9 +134,11 @@ class PositionPointer {
         } else {
             this.isAtLeftAbsoluteLimit = true;
         }
+
+        console.log(this.absolute);
     }
 
-    shiftLeft() {
+    shiftRight() {
 
         if (this._movingDir === 'backward') {
             this._movingDir = 'forward';
@@ -171,5 +169,7 @@ class PositionPointer {
         } else {
             this.isAtRightAbsoluteLimit = true;
         }
+
+        console.log(this.absolute);
     }
 };

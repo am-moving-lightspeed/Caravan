@@ -8,7 +8,7 @@
     playBtn.addEventListener(
         'click',
         e => {
-
+            location.assign('building-deck.html')
         }
     )
 
