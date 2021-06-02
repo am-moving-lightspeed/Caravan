@@ -1,0 +1,37 @@
+body {
+  height: 100%;
+}
+
+
+main {
+  background: rgba(0, 0, 0, 0.2);
+
+  border-radius: 20px;
+
+  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.2);
+}
+
+main article {
+  margin-bottom: 10vh;
+}
+
+main article span,
+main ul li span {
+  color: rgb(5, 160, 220);
+}
+
+
+button:first-of-type {
+  margin-bottom: 3vh;
+}
+
+button:last-of-type {
+  margin-top: 5vh;
+}
+
+
+.control {
+  display: block;
+
+  margin: 0 auto;
+}
