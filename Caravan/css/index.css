@@ -1,0 +1,18 @@
+body > div {
+  position: relative;
+}
+
+
+.user-status {
+  display: block;
+
+  position: absolute;
+  bottom: 9vh;
+
+  width: 100%;
+
+  background-image: linear-gradient(90deg, transparent 30%, #0000008F, transparent 70%);
+
+  color: rgba(220, 160, 5, 0.8);
+  text-align: center;
+}
