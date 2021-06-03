@@ -22,10 +22,10 @@ screenWidthMap = {
 
 
 kbLayoutSymbols = {
-    add: "(E)",
-    remove: "(R)",
-    randomize: "(M)",
-    selectAll: "(A)",
+    add: "(w)",
+    remove: "(r)",
+    randomize: "(x)",
+    selectAll: "(a)",
     moveLeft: "(←)",
     moveRight: "(→)"
 };
@@ -134,8 +134,6 @@ class PositionPointer {
         } else {
             this.isAtLeftAbsoluteLimit = true;
         }
-
-        console.log(this.absolute);
     }
 
     shiftRight() {
@@ -169,7 +167,5 @@ class PositionPointer {
         } else {
             this.isAtRightAbsoluteLimit = true;
         }
-
-        console.log(this.absolute);
     }
 };

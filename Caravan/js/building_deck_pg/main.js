@@ -6,6 +6,18 @@
 })();
 
 
+
+// Pre-initialize.
+(function() {
+
+    let pickedCardsCounter = document.getElementById('picked-cards-counter');
+    let totalCardsCounter = document.getElementById('total-cards-counter');
+
+    totalCardsCounter.innerText = this.availableCards.length;
+    pickedCardsCounter.innerText = 0;
+})();
+
+
 // Setting default KB shortcuts.
 (function() {
 
@@ -26,6 +38,7 @@
 // Settings default events.
 (function() {
 
+    let playBtn = document.getElementById('play-btn')
     let addBtn = document.getElementById('add-btn');
     let removeBtn = document.getElementById('remove-btn');
     let randomizeBtn = document.getElementById('randomize-btn');
@@ -33,6 +46,9 @@
     let backBtn = document.getElementById('back-btn');
     let shiftLeftBtn = document.getElementById('shift-left-btn');
     let shiftRightBtn = document.getElementById('shift-right-btn');
+    let acceptHint = document.getElementById('accept-hint');
+
+    let pickedCardsCounter = document.getElementById('picked-cards-counter');
 
     // TODO: add events.
     // NOTE: Replace assign().
@@ -41,20 +57,42 @@
         (e) => location.assign('index.html')
     );
 
+    playBtn.addEventListener(
+        'click',
+        (e) => location.assign('in-game.html')
+    );
+
     addBtn.addEventListener(
         'click',
-        (e) => changeMatchingCards(
-            this.curPos.absolute,
-            (index) => this.availableCards[index] !== this.cardBack
-        )
+        (e) => {
+            let areChanged = changeMatchingCards(
+                this.curPos.absolute,
+                (index) => this.availableCards[index] !== this.cardBack
+            );
+
+            if (areChanged) {
+                pickedCardsCounter.innerText = Number.parseInt(pickedCardsCounter.innerText) + 1;
+            }
+        }
     );
 
     removeBtn.addEventListener(
         'click',
-        (e) => changeMatchingCards(
-            this.curPos.absolute,
-            (index) => this.pickedCards[index] !== this.cardBack
-        )
+        (e) => {
+            let areChanged = changeMatchingCards(
+                this.curPos.absolute,
+                (index) => this.pickedCards[index] !== this.cardBack
+            );
+
+            if (areChanged) {
+                pickedCardsCounter.innerText = Number.parseInt(pickedCardsCounter.innerText) - 1;
+            }
+        }
+    );
+
+    selectAllBtn.addEventListener(
+        'click',
+        (e) => exchangeDecks(this.curPos.absolute)
     );
 
     shiftLeftBtn.addEventListener(
@@ -65,6 +103,14 @@
     shiftRightBtn.addEventListener(
         'click',
         (event) => shiftRight()
+    );
+
+    acceptHint.addEventListener(
+        'click',
+        (e) => {
+            let hint = document.getElementById('on-load-hint');
+            hint.style.display = 'none';
+        }
     );
 })();
 
@@ -222,7 +268,12 @@ function changeMatchingCards(index, predicate) {
 
         li_A.appendChild(img_P);
         li_P.appendChild(img_A);
+
+        return true;
     }
+
+    // Returns true, if has changed.
+    return false;
 }
 
 
@@ -244,4 +295,43 @@ function removeCard(index) {
         li_A.appendChild(img_P);
         li_P.appendChild(img_A);
     }
+}
+
+
+
+function exchangeDecks(currentIndex) {
+
+    [this.availableCards, this.pickedCards] = [this.pickedCards, this.availableCards];
+
+    let offset = (-1) * Math.floor(this.availableCardsList.children.length / 2);
+
+    for (var li of this.availableCardsList.children) {
+
+        if (!li.hasAttribute('invisible')) {
+            li.firstElementChild.setAttribute(
+                'src',
+                this.imgManager.getFilepath(this.availableCards[currentIndex + offset])
+            );
+        }
+        offset++;
+    }
+
+    offset = (-1) * Math.floor(this.pickedCardsList.children.length / 2);
+
+    for (var li of this.pickedCardsList.children) {
+
+        if (!li.hasAttribute('invisible')) {
+            li.firstElementChild.setAttribute(
+                'src',
+                this.imgManager.getFilepath(this.pickedCards[currentIndex + offset])
+            );
+        }
+        offset++;
+    }
+}
+
+
+
+function randomizeDeck(currentIndex) {
+
 }

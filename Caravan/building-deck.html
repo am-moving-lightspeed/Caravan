@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>'Caravan': choose cards for your deck</title>
   <link rel="stylesheet" href="./css/shared.css">
-  <link rel="stylesheet" href="./css/deck-forming.css">
+  <link rel="stylesheet" href="./css/building-deck.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap" rel="stylesheet">
 </head>
@@ -29,11 +29,11 @@
 
         <section class="deck-info">
           <p>Caravan deck:</p>
-          <p>34</p>
+          <p id="picked-cards-counter">34</p>
           <p class="deck-info__pointer deck-info__pointer--up">▲</p>
           <button id="randomize-btn" class="control control--dynamic-prefix control--alt-color">Randomize deck</button>
           <p>Total cards:</p>
-          <p>67</p>
+          <p id="total-cards-counter">67</p>
           <p class="deck-info__pointer deck-info__pointer--down">▼</p>
           <button id="select-all-btn" class="control control--dynamic-prefix control--alt-color">Select all</button>
         </section>
@@ -63,6 +63,19 @@
       </div>
 
     </div>
+  </div>
+
+  <div id="on-load-hint" class="on-load-hint">
+    <p>
+      This is the stage of forming your deck. Cards <span>at</span> the <span>top</span> are
+      <span>available</span> for you <span>to pick</span>. Cards <span>at</span> the <span>bottom are</span> those
+      you have <span>picked</span>. <span>Change</span> your <span>position</span> within cards
+      by pressing <span>left</span> or <span>right arrows on</span> your <span>keyboard</span> or
+      corresponding <span>buttons at left</span>/<span>right</span>. To <span>pick</span>/<span>remove
+        card</span> press corresponding buttons or their shortcuts.
+    </p>
+
+    <button id="accept-hint" class="control">OK</button>
   </div>
 
   <script src="js/building_deck_pg/global.js" charset="utf-8"></script>

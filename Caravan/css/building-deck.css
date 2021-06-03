@@ -1,4 +1,8 @@
 /* General */
+body {
+  position: relative;
+}
+
 main {
   padding: 0 3vw;
 
@@ -28,6 +32,8 @@ ul {
 /* Cards */
 .card {
   width: 8.5vw;
+
+  border-radius: 0.75vw;
 }
 
 
@@ -106,47 +112,50 @@ ul {
   width: 10vw;
 }
 
-.control-bg {
-  width: 100%;
-
-  background-image: radial-gradient(circle closest-side, #0000008F, transparent);
+#play-btn::before {
+  content: '→';
 }
 
-.control-bg:hover {
-  background-image: radial-gradient(circle closest-side, #000000BF, transparent);
+
+
+/* On-load hint */
+.on-load-hint {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  padding: 20vh 25vw;
+
+  width: 100vw;
+  height: 100vh;
+
+  /* background-color: rgba(0, 0, 0, 0.75); */
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75) 5%,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.75) 95%
+  );
 }
 
-.control--arrow-btn {
-  display: block;
-  position: relative;
-  top: -0.3rem;
-
-  margin: 0 auto;
-
-  width: 100%;
-
-  background: transparent;
-  color: rgba(5, 160, 220, 0.9);
-
-  line-height: 1.25;
+.on-load-hint button {
+  background: none;
 }
 
-.control--arrow-btn:hover {
-  color: rgb(5, 160, 220);
-
-  /* NOTE: cancel 'control' class transform. */
-  transform: none;
-}
-
-.control--arrow-btn:active {
-  transform: scale(0.96);
-}
-
-.control--arrow-btn::after,
-.control--arrow-btn::before {
+.on-load-hint button::before {
   display: none;
 }
 
-#play-btn::before {
-  content: '→';
+.on-load-hint p {
+  text-align: center;
+}
+
+.on-load-hint p span {
+  color: rgb(5, 160, 220);
 }
