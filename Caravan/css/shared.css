@@ -101,9 +101,10 @@ h1, h2 {
 
   width: 6.5vw;
 
-  /* FIXME:  */
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 1);
-  border-radius: 10px;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.7);
+  border-radius: 9px;
+  /* FIXME: remove. */
+  /* box-shadow: 0 0 0px 3px rgba(5, 160, 220, 1); */
 }
 
 .card--invisible {
@@ -172,4 +173,45 @@ h1, h2 {
 
 .control--alt-color::after {
   background-color: rgb(220, 135, 30);
+}
+
+.control-bg {
+  width: 100%;
+
+  background-image: radial-gradient(circle closest-side, #0000008F, transparent);
+}
+
+.control-bg:hover {
+  background-image: radial-gradient(circle closest-side, #000000BF, transparent);
+}
+
+.control--arrow-btn {
+  display: block;
+  position: relative;
+  top: -0.3rem;
+
+  margin: 0 auto;
+
+  width: 100%;
+
+  background: transparent;
+  color: rgba(5, 160, 220, 0.9);
+
+  line-height: 1.25;
+}
+
+.control--arrow-btn:hover {
+  color: rgb(5, 160, 220);
+
+  /* NOTE: cancel 'control' class transform. */
+  transform: none;
+}
+
+.control--arrow-btn:active {
+  transform: scale(0.96);
+}
+
+.control--arrow-btn::after,
+.control--arrow-btn::before {
+  display: none;
 }

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Play!</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/shared.css">
+  <link rel="stylesheet" href="./css/in-game.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="vertical-container">
+    <div class="horizontal-container">
+
+      <main class="in-game-layout">
+
+        <section class="caravans-section">
+          <ul id="caravans" class="caravans">
+            <li class="caravans-column">
+              <div class="card-frame"></div>
+              <span>0</span>
+              <span>0</span>
+              <div id="players-caravan-start-1" class="card-frame"></div>
+              <img id="picked-card" src="./img/2C.png" class="card picked-card">
+            </li>
+            <li class="caravans-column">
+              <div class="card-frame"></div>
+              <span>0</span>
+              <span>0</span>
+              <div id="players-caravan-start-2" class="card-frame"></div>
+            </li>
+            <li class="caravans-column">
+              <div class="card-frame"></div>
+              <span>0</span>
+              <span>0</span>
+              <div id="players-caravan-start-3" class="card-frame"></div>
+            </li>
+          </ul>
+
+        </section>
+
+        <section class="deck-section">
+          <div class="info-block">
+            <div class="info-block__item">
+              <span>Ante Pot:</span>
+              <span>2502</span>
+            </div>
+          </div>
+
+          <div id="opponents-cards" class="cards-deck-block">
+            <div class="cards-in-hand--mirrored">
+              <img src="img/card-back.png" class="card">
+              <img src="img/card-back.png" class="card">
+              <img src="img/card-back.png" class="card">
+              <img src="img/card-back.png" class="card">
+              <img src="img/card-back.png" class="card">
+            </div>
+            <div class="cards-deck">
+              <img src="./img/card-back.png" class="card">
+              <img src="./img/card-back.png" class="card">
+              <img src="./img/card-back.png" class="card">
+              <span>15</span>
+            </div>
+          </div>
+
+          <div id="players-cards" class="cards-deck-block">
+            <div id="players-cards-in-hand" class="cards-in-hand">
+              <img src="img/2C.png" class="card card--selected">
+              <img src="img/5D.png" class="card">
+              <img src="img/10S.png" class="card">
+              <img src="img/KC.png" class="card">
+              <img src="img/JH.png" class="card">
+            </div>
+            <div class="cards-deck">
+              <img src="./img/card-back.png" class="card">
+              <img src="./img/card-back.png" class="card">
+              <img src="./img/card-back.png" class="card">
+              <span>22</span>
+            </div>
+          </div>
+
+          <div class="controls-block">
+            <button id="select-btn" class="control control--dynamic-prefix control--alt-color">Select card</button>
+            <button id="discard-card-btn" class="control control--dynamic-prefix control--alt-color">Discard card</button>
+            <button id="discard-caravan-btn" class="control control--dynamic-prefix control--alt-color">Discard caravan</button>
+            <button id="forfeit-btn" class="control control--dynamic-prefix">Forfeit game</button>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script src="./js/in_game/global.js" charset="utf-8"></script>
+  <script src="./js/in_game/main.js" charset="utf-8"></script>
+  <script src="./js/in_game/kb-events.js" charset="utf-8"></script>
+</body>
+
+</html>

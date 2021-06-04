@@ -2,3 +2,5 @@
 (195, 50, 50) -- brown
 (220, 160, 5) -- orange (default)
 (220, 135, 30) -- orange (darker)
+(145, 190, 115) -- light green
+(220, 80, 95) -- dark pink

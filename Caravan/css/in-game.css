@@ -1,10 +1,12 @@
-/* Game Page */
+/* General */
+.vertical-container {
+  padding-top: 5vh;
+  padding-bottom: 6vh;
+}
 
-.in-game-container {
-    padding: 4vh 10vw 7vh;
-
-    width: 100vw;
-    height: 100vh;
+.horizontal-container {
+  padding-left: 8vw;
+  padding-right: 7vw;
 }
 
 .in-game-layout {
@@ -14,19 +16,15 @@
 
     width: 100%;
     height: 100%;
-
-    -webkit-text-fill-color: rgb(220, 160, 5);
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: brown;
 }
 
 
 
-/* Caravans section. */
+/* Caravans section */
 .caravans-section {
-    flex: 5 1 0;
+  flex: 5 1 0;
 
-    height: 100%;
+  height: 100%;
 }
 
 .caravans {
@@ -57,7 +55,7 @@
 
 
 
-/* Deck section. */
+/* Deck section */
 .deck-section {
     flex: 3 1 0;
 
@@ -68,7 +66,8 @@
 }
 
 
-/* Info block start */
+
+/* Info */
 .info-block {
     flex: 0.3 1 0;
 
@@ -86,10 +85,10 @@
 .info-block__item span:last-child {
     margin-left: 10px;
 }
-/* Info block end */
 
 
-/* Controls block start */
+
+/* Controls */
 .controls-block {
     flex: 0.3 1 0;
 
@@ -97,10 +96,36 @@
     flex-direction: column;
     align-items: flex-end;
 }
-/* Controls block end */
+
+.controls-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+}
 
 
-/* Cards deck block start */
+
+/* Cards deck */
+.card-frame {
+  display: block;
+  background-color: transparent;
+
+  width: 6vw;
+  height: 6vw;
+
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7),
+              inset 0 0 10px 1px rgba(0, 0, 0, 0.7);
+
+  border-radius: 0.5vw;
+}
+
 .cards-deck-block {
     flex: 1 1 0;
 }
@@ -249,4 +274,25 @@
     bottom: 5%;
     right: 5%;
 }
-/* Cards deck block end */
+
+.cards-in-hand img.card--selected {
+  z-index: 100;
+
+  box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.6),
+              1vw 0.8vh 4px 0 rgba(0, 0, 0, 0.65);
+}
+
+
+
+/* Picked card */
+.picked-card {
+  display: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  border: 3px solid rgba(145, 190, 115);
+  /* border: 3px solid rgba(220, 80, 95); */
+}
